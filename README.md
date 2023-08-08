@@ -83,9 +83,10 @@
 
 
 ### Subtrees
-- Subtrees are structured as a set of three MDSPlus files (.characteristics, .datafile, and .tree).
+- Subtrees are structured as a set of three MDSplus files (.characteristics, .datafile, and .tree).
 - Each subtree is stored in a separate directory under the `/data/wham_model/` directory. 
-- NB: No two subtrees should share the same name. Indentical subtree names will result in conflicting paths and would make it difficult to restructure the tree later on (such as moving a subtree up a level)
+- Even though trees can be nested in the MDSplus tree database, the actual MDSplus files (.characteristics, .datafile, and .tree) are stored in a flat (single level) directory structure.
+- **NB:** No two subtrees should share the same name. Indentical subtree names will result in conflicting paths and would make it difficult to restructure the tree later on (such as moving a subtree up a level).
 
 
 
