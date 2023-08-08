@@ -72,6 +72,12 @@
 - Tree and subtree names are limited to 12 characters.
 
 
+### Configuring Data Directories
+- [Tree Access](https://www.mdsplus.org/index.php/Documentation:TreeAccess)
+
+
+### TCL
+
 
 ## MDSPlus Utilities
 
@@ -81,4 +87,16 @@
 
 ### jScope
 
+## MDSPlus Documentation
+- Recommended reading:
+	- [Tutorials](https://www.mdsplus.org/index.php?title=Documentation:Tutorial&open=18815634063302659165716529&page=Documentation%2FTutorials)
+	- [Basic Concepts](https://www.mdsplus.org/index.php?title=Documentation:Tutorial:QuickOverview&open=1624466399993193889855&page=Tutorials%2FQuick+Tour)
+	- [The Data Hierarchy - Trees, Nodes, and Models](https://www.mdsplus.org/index.php?title=Documentation:Tutorial:CreateTrees&open=18815532534152659725254719&page=Tutorials%2FTrees+%26+Data)
+	- [OOP Interface (including Python)](https://www.mdsplus.org/index.php?title=Documentation:Tutorial:MdsObjects&open=38101832318169843162415089&page=Documentation%2FThe+MDSplus+tutorial%2FThe+Object+Oriented+interface+of+MDSPlus)
+	- [Experimental Sequence](https://www.mdsplus.org/index.php?title=Documentation:Tutorial:ExperimentSequence&open=38101832318169843162415089&page=Documentation%2FThe+MDSplus+tutorial%2FSetting+up+an+experiment+sequence)
+	- [Devices](https://www.mdsplus.org/index.php?title=Documentation:Tutorial:Devices&open=38101832318169843162415089&page=Documentation%2FThe+MDSplus+tutorial%2FDeveloping+MDSplus+devices)
+- MDSplus quick reference
+	- [Tree Command Language (TCL)](https://www.mdsplus.org/index.php?title=Documentation:Reference:TCL_index&open=18815634135359153558782001&page=Documentation%2FReference%2FTCL)
+	- [TDI](https://www.mdsplus.org/index.php?title=Documentation:Reference:TDI&open=18815634135359153558782001&page=Documentation%2FReference%2FTDI)
+	- []()
 
