@@ -123,8 +123,8 @@
 	- The raw data subtree follows the naming convention of `<system-name>` + `_raw`. It contains any nodes or subtrees involved in collecting raw, unprocessed data from sensors or instruments. Each raw data subtree exists as an entirely separate set of tree files (.characteristics, .datafile, and .tree) that has been merged with the system subtree.
 	- The processing stucture follows the naming convention of `<system-name>` + `_proc`. It contains any nodes or subtrees responsible for processing the raw data using TDI expressions. The processing structure does not exist as a separate tree; instead it is an inherent part of the parent system subtree.
 - The main structure of the WHAM MDSplus tree was based off of the MDSplus tree created for the Madison Symmetric Torus (MST). This was done to adopt the good practices from the MST. However, there are several differences present in the WHAM MDSplus:
-	1. In the MST MDSplus tree, subtrees begin with the prefix `mst_`. This style of naming convention was not adopted for the WHAM since subtree names can quickly run into the 12 character limit.
-	2. Each system subtree is divided into two primiary parts: a processing structure and a raw data subtree. This organizes and separates the raw data from processed data while still allowing systems to be selectively enabled or disabled during shots. Because each raw data subtree exists as a distinct tree from their parent system subtrees, file permissions can be configured to protect raw data collected after shots.
+	1. In the MST MDSplus tree, subtrees begin with the prefix `mst_`. This style of naming convention was not adopted for the WHAM tree since subtree names can quickly run into the 12 character limit.
+	2. Each system subtree is divided into two primiary parts: a processing structure and a raw data subtree. This organizes and separates the raw data from processed data while still allowing systems to be selectively enabled or disabled during shots. Additionally, because each raw data subtree exists as a distinct tree from their parent system subtrees, file permissions can be configured to protect recorded raw data.
 
 
 
