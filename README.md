@@ -1,4 +1,4 @@
-# uw-wham-mdsplus
+# UW WHAM MDSplus Documentation
 
 ## Introduction
 - 
@@ -26,9 +26,15 @@
 
 ### MDSPlus Image
 - This project includes a Dockerfile to build and create an MDSPlus docker image. The purpose of the MDSPlus docker image is to simplify the installation and setup of MDSplus to make it easier to get started with learning to use MDSPlus.
+- The MDSplus docker image in this project is built on top of Ubuntu Linux. You can look through the Dockerfile to see how MDSplus is installed and configured. Many of the installation steps were found using trial and error since the MDSplus documentation is not regularly updated.
+- There is also an [official MDSplus Docker project](https://github.com/MDSplus/Docker) that is built on top of Alpine Linux. At the time of writing (August 2023) there were errors running the container
 - Some useful links:
 	- [Official MDSplus Docker project](https://github.com/MDSplus/Docker)
 	- [Introduction to MDSplus using Docker](https://www.sciencedirect.com/science/article/pii/S0920379620306694)
+
+#### Building the Image
+
+#### Running the Container
 
 #### Dockerfile
 
@@ -78,6 +84,10 @@
 
 ### TCL
 
+### TDI
+
+### Shots
+
 
 ## MDSPlus Utilities
 
@@ -86,6 +96,39 @@
 ### jTraverser
 
 ### jScope
+
+
+
+
+## WHAM MDSplus Tree
+
+### Summary
+
+
+### Accessing the WHAM tree
+- SSH as user `WHAMdata` (case sensitive) to [andrew.physics.wisc.edu](andrew.physics.wisc.edu).
+- Use `jTraverser` or `mdstcl` to inspect or modify the model tree (shot number -1)
+
+
+### Tree Structure
+- The main top level tree is named `wham`. Beneath the top level, there are several subtrees.
+- Subtrees are organized by system:
+	- `BIAS` for the biasing system
+	- `DIAG` for the diagnostics system
+	- `ECH` for electron cyclotron heating system
+	- `MISC` for miscellaenous items
+	- `NBI` for the neutral beam injector system
+	- `RF` for the radio frequency system
+- Each system subtree is divided into two primiary parts: a processing structure and a raw data subtree.
+	- The raw data subtree follows the naming convention of `<system-name>` + `_raw`. It contains any nodes or subtrees involved in collecting raw, unprocessed data from sensors or instruments. Each raw data subtree exists as an entirely separate set of tree files (.characteristics, .datafile, and .tree) that has been merged with the system subtree.
+	- The processing stucture follows the naming convention of `<system-name>` + `_proc`. It contains any nodes or subtrees responsible for processing the raw data using TDI expressions. The processing structure does not exist as a separate tree; instead it is an inherent part of the parent system subtree.
+- The main structure of the WHAM MDSplus tree was based off of the MDSplus tree created for the Madison Symmetric Torus (MST). This was done to adopt the good practices from the MST. However, there are several differences present in the WHAM MDSplus:
+	1. In the MST MDSplus tree, subtrees begin with the prefix `mst_`. This style of naming convention was not adopted for the WHAM since subtree names can quickly run into the 12 character limit.
+	2. Each system subtree is divided into two primiary parts: a processing structure and a raw data subtree. This organizes and separates the raw data from processed data while still allowing systems to be selectively enabled or disabled during shots. Because each raw data subtree exists as a distinct tree from their parent system subtrees, file permissions can be configured to protect raw data collected after shots.
+
+
+
+
 
 ## MDSPlus Documentation
 - Recommended reading:
