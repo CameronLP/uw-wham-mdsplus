@@ -39,7 +39,7 @@
 - Run `docker build  -t mdsplus .`
 
 
-#### Setup X11 Forwarding (Optiona)
+#### Setup X11 Forwarding (Optional)
 - This step is optional and only necessarily if you are using a graphical program such as jTraverser from within the container
 - Confirmed working on MacOS. X11 has not been tested on Linux or Windows but it should be possible.
 - MacOS:
@@ -147,8 +147,9 @@
 	- `NBI` for the neutral beam injector system
 	- `RF` for the radio frequency system
 - Each system subtree is divided into two primiary parts: a processing structure and a raw data subtree.
-	- The raw data subtree follows the naming convention of `<system-name>` + `_raw`. It contains any nodes or subtrees involved in collecting raw, unprocessed data from sensors or instruments. Each raw data subtree exists as an entirely separate set of tree files (.characteristics, .datafile, and .tree) that has been merged with the system subtree.
-	- The processing stucture follows the naming convention of `<system-name>` + `_proc`. It contains any nodes or subtrees responsible for processing the raw data using TDI expressions. The processing structure does not exist as a separate tree; instead it is an inherent part of the parent system subtree.
+	- `_RAW`: The raw data subtree follows the naming convention of `<system-name>` + `_RAW`. It contains any nodes or subtrees involved in collecting raw, unprocessed data from sensors or instruments. Each raw data subtree exists as an entirely separate set of tree files (.characteristics, .datafile, and .tree) that has been merged with the system subtree.
+	- `_PROC`: The processing stucture follows the naming convention of `<system-name>` + `_PROC`. It contains any nodes or subtrees responsible for processing the raw data using TDI expressions. The processing structure does not exist as a separate tree; instead it is an inherent part of the parent system subtree.
+	- `_PARAMS_`: The parameters stucture follows the naming convention of `<system-name>` + `_PARAMS`. It contains any nodes used to hold parameters or constants used by the `_PROC` nodes. The parameters structure does not exist as a separate tree; instead it is an inherent part of the parent system subtree.
 - The main structure of the WHAM MDSplus tree was based off of the MDSplus tree created for the Madison Symmetric Torus (MST). This was done to adopt the good practices from the MST. However, there are several differences present in the WHAM MDSplus:
 	1. In the MST MDSplus tree, subtrees begin with the prefix `mst_`. This style of naming convention was not adopted for the WHAM tree since subtree names can quickly run into the 12 character limit.
 	2. Each system subtree is divided into two primiary parts: a processing structure and a raw data subtree. This organizes and separates the raw data from processed data while still allowing systems to be selectively enabled or disabled during shots. Additionally, because each raw data subtree exists as a distinct tree from their parent system subtrees, file permissions can be configured to protect recorded raw data.
@@ -176,19 +177,6 @@
 - Devices files are placed in `/data/wham_model/pydevices/`. This should be changed to `/usr/local/mdsplus/pydevices` (requires sudo).
 - The Python shared library `libpython3.8.so` is weird to setup since it is part of an Anaconda installation of Python. Might be wise to change this to a system installation of Python depending on how Python scripts for MDSplus are run. Also need to be aware of an updated that require the path to the `.so` file to be changed.
 - Once sudo access is obtained, make sure to remove the two `export` commands from above in the `~/.bashrc` file
-
-## Tree To Do
-- ECH
-	- ECH_PROC
-		- GYROTRON_V
-		- GYROTRON_I
-		- DL_MOTOR_F
-		- DL_MOTOR_R
-		- WG_MOTOR_F
-		- WG_MOTOR_R
-		- NOISE_CAGE
-		- NOISE_LAB
-	- ECH_RAW
 
 
 ## Finding Current Shot

@@ -1,4 +1,0 @@
-
-
-
-docker run --rm -it -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /Users/cameron/Projects/uw-wham-mdsplus/mdsplus_docker/my_tree:/mytree mdsplus:latest /bin/bash
