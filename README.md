@@ -192,7 +192,7 @@ print(s)
 ```
 from MDSplus import connection
 c = connection.Connection("andrew")
-c.openTree("wham",0)
+c.openTree("wham", 0)
 s = c.get('$shot')
 print(s)
 ```
