@@ -67,11 +67,16 @@ RUN echo "export MDS_PATH=/usr/local/mdsplus/tdi/" >> /root/.bashrc
 RUN echo "export CLASSPATH=$CLASSPATH:/usr/local/mdsplus/java/classes/jScope.jar:/usr/local/mdsplus/java/classes/jTraverser.jar:/usr/local/mdsplus/java/classes/jDevices.jar:/usr/local/mdsplus/java/classes/MDSobjects.jar:/usr/local/mdsplus/java/classes/jDispatcher.jar" >> /root/.bashrc
 RUN echo "export MDSPLUS_DIR=/usr/local/mdsplus/" >> /root/.bashrc
 RUN echo "export PyLib=python3.10" >> /root/.bashrc
-ENV echo "export MDSPLUS_DIR=/usr/local/mdsplus/" >> /root/.bashrc
+RUN echo "export MDSPLUS_DIR=/usr/local/mdsplus/" >> /root/.bashrc
+RUN echo "export MDS_PYDEVICE_PATH=/usr/local/mdsplus/pydevices/" >> /root/.bashrc
 
 # Create command aliases for jTraverser and jScope to make them easier to call
 RUN echo "alias jTraverser='java -jar /usr/local/mdsplus/java/classes/jTraverser.jar'" >> /root/.bashrc
 RUN echo "alias jScope='java -jar /usr/local/mdsplus/java/classes/jScope.jar'" >> /root/.bashrc
+
+
+
+
 
 
 

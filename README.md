@@ -36,7 +36,8 @@
 
 #### Building the Image
 - Naviagate to the directory containing the Dockerfile
-- Run `docker build  -t mdsplus .`
+- Run `docker build -t mdsplus .`
+- If you encounter errors, it can sometimes be resolved by building with the `--no-cache` argument: `docker build --no-cache -t mdsplus .`
 
 
 #### Setup X11 Forwarding (Optional)
@@ -186,4 +187,44 @@ from MDSplus import *
 t = Tree("wham", -1)
 s = t.getCurrent()
 print(s)
+```
+- Using Python from a **remote** machine:
+```
+from MDSplus import connection
+c = connection.Connection("andrew")
+c.openTree("wham",0)
+s = c.get('$shot')
+print(s)
+```
+
+## Editting Tree
+- Using TCL:
+```
+edit my_tree
+delete node RP/confirm
+add node RP/model=WHAM_RED_PITAYA_FAKE
+write
+close
+exit
+```
+
+
+## Taking Test Shot
+- Using TCL:
+```
+set tree my_tree /shot=-1
+set current my_tree /increment
+create pulse 0
+set tree my_tree /shot=0
+dispatch /build
+dispatch /phase INIT
+```
+
+
+## Checking Data in Device
+- Using Python:
+```
+from MDSplus import *
+t = Tree("my_tree", 3)
+c = t.RP.getNode(":CH_01")
 ```
