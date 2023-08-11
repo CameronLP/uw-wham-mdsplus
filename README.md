@@ -228,3 +228,16 @@ from MDSplus import *
 t = Tree("my_tree", 3)
 c = t.RP.getNode(":CH_01")
 ```
+
+## Accessing MDSplus Data Remotely
+- Using Python:
+```
+from MDSplus import connection
+conn = connection.Connection("andrew.psl.wisc.edu")
+conn.openTree("wham",0)
+conn.get("ECH.ECH_RAW.RP_1:CH_01")
+```
+
+
+## Other
+- docker run --rm -it -p 8000 -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /Users/cameron/Projects/uw-wham-mdsplus/mdsplus_docker/my_tree:/my_tree -v /Users/cameron/Projects/WHAM_Data/:/WHAM_Data/ mdsplus:latest /bin/bash
