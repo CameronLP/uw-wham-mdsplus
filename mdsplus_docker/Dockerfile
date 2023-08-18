@@ -78,6 +78,8 @@ RUN echo "alias jScope='java -jar /usr/local/mdsplus/java/classes/jScope.jar'" >
 
 RUN pip3 install matplotlib
 RUN pip3 install h5py
+RUN pip3 install django
+RUN pip3 install xarray
 
 
 

@@ -174,7 +174,9 @@
 	
 ## Setting Up Devices on `andrew.physics.wisc.edu`
 - `export MDS_PYDEVICE_PATH=/data/wham_model/pydevices`
-- `export PyLib=/home/WHAMdata/anaconda3/lib/libpython3.8.so`
+- `export PYTHONPATH=$PYTHONPATH:/data/wham_model/pydevices` or `export PYTHONPATH=/home/WHAMdata/MDSplus/:/data/wham_model/pydevices`
+- Anaconda (not recommended): `export PyLib=/home/WHAMdata/anaconda3/lib/libpython3.8.so`
+- System Python: `export PyLib=/usr/lib64/libpython3.so`
 - Devices files are placed in `/data/wham_model/pydevices/`. This should be changed to `/usr/local/mdsplus/pydevices` (requires sudo).
 - The Python shared library `libpython3.8.so` is weird to setup since it is part of an Anaconda installation of Python. Might be wise to change this to a system installation of Python depending on how Python scripts for MDSplus are run. Also need to be aware of an updated that require the path to the `.so` file to be changed.
 - Once sudo access is obtained, make sure to remove the two `export` commands from above in the `~/.bashrc` file
@@ -241,3 +243,6 @@ conn.get("ECH.ECH_RAW.RP_1:CH_01")
 
 ## Other
 - docker run --rm -it -p 8000 -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /Users/cameron/Projects/uw-wham-mdsplus/mdsplus_docker/my_tree:/my_tree -v /Users/cameron/Projects/WHAM_Data/:/WHAM_Data/ mdsplus:latest /bin/bash
+
+## Plotting
+- [MDSmonkey in Python](https://github.com/lamorton/MDSmonkey)
