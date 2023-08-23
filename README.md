@@ -246,3 +246,6 @@ conn.get("ECH.ECH_RAW.RP_1:CH_01")
 
 ## Plotting
 - [MDSmonkey in Python](https://github.com/lamorton/MDSmonkey)
+
+## Copy from `andrew`
+- scp -r WHAMdata@andrew.psl.wisc.edu:/data/wham_model/pydevices ~/Desktop/
